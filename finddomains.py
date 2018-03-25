@@ -3,6 +3,15 @@ import json
 import sys
 
 
+def get_zones():
+    r = requests.get('https://dns.coffee/api/zones' )
+    return (json.loads(r.text)['data']['zones'])
+
+def get_ns(zone):
+    r = requests.get('https://dns.coffee/api/zones/%s' % zone)
+    return (json.loads(r.text)['data']['nameservers'])
+
+
 def check_dns(ns):
     r = requests.get('https://dns.coffee/api/nameservers/%s' % ns)
     result = json.loads(r.text)['data']
@@ -24,6 +33,18 @@ def show_dns(*args):
 
 
 if __name__ == '__main__':
+
+    for z in get_zones():
+        print(z['zone'])
+        try:
+            for ns in get_ns(z['zone']):
+                print(ns['name'])
+        except:
+            pass
+
+    '''
+
+
     try:
         show_dns('NS1.ANONS.IO',*sys.argv)
     except Exception as e:
@@ -36,5 +57,4 @@ if __name__ == '__main__':
         show_dns('CARTER.NS.CLOUDFLARE.COM',*sys.argv)
     except Exception as e:
         show_dns('TINA.NS.CLOUDFLARE.COM',*sys.argv)
-
-
+'''
