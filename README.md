@@ -8,12 +8,12 @@ Ferramentas para facilitar a o desenvolvimento e automatizar tratamento de incid
 
 * **`aws`**: ligar, listar e desligar maquinas na aws.
 
-           machines = MachinesAWS(sistema='xyz', ambiente='desenvolvimento')
+           machines = MachinesAWS(sistema='xyz', ambiente='poc')
            machines.lista  # lista o id das maquinas
            machines.liga  # liga a lista das listas da maquina
            machines.desliga  # desliga as maquinas
 
-* **`finddomains`**: Achar domínios por string (foco em dominios anonimos).
+* **`finddomains`**: Achar domínios por string.
    
            finddomains google
 
