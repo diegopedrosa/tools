@@ -17,5 +17,9 @@ Ferramentas para facilitar a o desenvolvimento e automatizar tratamento de incid
    
            finddomains google
 
+* **`findgithub`**: Fazer buscas no github.
+
+           findgithub poker
+           findgithub "poker com amigos"
 
 
